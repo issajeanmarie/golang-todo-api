@@ -1,7 +1,7 @@
 package router
 
 import (
-	"fmt"
+	"os"
 	todoHandler "todo-api/api/handler"
 	consts "todo-api/config"
 
@@ -11,7 +11,12 @@ import (
 func SetupRouter() *gin.Engine{
 	r := gin.Default()
 
-	fmt.Println("Running on: ", consts.URL)
+
+	port := os.Getenv("PORT"); 
+	if port == ""{
+		port = consts.URL
+	}
+	
 	r.GET(consts.ToDosURL, todoHandler.GetTodos)
 	r.POST(consts.ToDosURL, todoHandler.AddTodo)
 
