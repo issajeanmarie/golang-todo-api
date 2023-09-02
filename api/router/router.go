@@ -19,6 +19,7 @@ func SetupRouter() *gin.Engine{
 	
 	r.GET(consts.ToDosURL, todoHandler.GetTodos)
 	r.POST(consts.ToDosURL, todoHandler.AddTodo)
+	r.DELETE(consts.ToDosURL + "/:id", todoHandler.DeleteTodo)
 
 	return r
 }
