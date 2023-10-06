@@ -1,6 +1,21 @@
-package consts
+package config
 
-const (
-	URL      = "localhost:8080"
-	ToDosURL = "/todos"
+import (
+	"todo-api/api/module"
 )
+
+func PORT() string {
+	return "localhost:3000"
+}
+
+func CUSTOM_TODOS() []module.Todo{
+	todos := []module.Todo {
+		{
+			Name: "Cook",
+		},{
+			Name: "Call mom",
+		},
+		
+	}
+	return todos
+}
